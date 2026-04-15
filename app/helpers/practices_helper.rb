@@ -25,4 +25,17 @@ module PracticesHelper
       twitter: { image: image_url, url: request.url }
     )
   end
+
+  def difficulty_icon(minutes)
+    return '' if minutes.nil?
+
+    hours = (minutes / 60).floor
+    case hours
+    when 0..5 then '🔥'
+    when 6..10 then '🔥🔥'
+    when 11..15 then '🔥🔥🔥'
+    when 16..20 then '🔥🔥🔥🔥'
+    else '🔥🔥🔥🔥🔥'
+    end
+  end
 end
